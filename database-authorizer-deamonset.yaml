@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: scaleway-database-authorizer
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: scaleway-database-authorizer
+  template:
+    metadata:
+      labels:
+        name: scaleway-database-authorizer
+    spec:
+      containers:
+        - name: scaleway-database-authorizer
+          image: appsent/scaleway-database-authorizer
+          env:
+            - name: SCALEWAY_ACCESS_KEY
+              value: ""
+            - name: SCALEWAY_SECRET_KEY
+              value: ""
+            - name: SCALEWAY_ORG_ID
+              value: ""
+            - name: SCALEWAY_INSTANCE_ID
+              value: ""
+            - name: SCALEWAY_DATABASE_REGION
+              value: "fr-par"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+      terminationGracePeriodSeconds: 30
