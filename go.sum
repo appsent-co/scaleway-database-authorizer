@@ -1,4 +1,6 @@
 github.com/dnaeon/go-vcr v1.0.1/go.mod h1:aBB1+wY4s93YsC3HHjMBMrwTj2R9FHDzUr9KyGc8n1E=
+github.com/glendc/go-external-ip v0.0.0-20200601212049-c872357d968e h1:gLpAlmoGqnW3a3GCkOe+Ic8hZoSCfi0PdA0B8j7d6uw=
+github.com/glendc/go-external-ip v0.0.0-20200601212049-c872357d968e/go.mod h1:o9OoDQyE1WHvYVUH1FdFapy1/rCZHHq3O5wS4VA83ig=
 github.com/scaleway/scaleway-sdk-go v1.0.0-beta.6 h1:C1/pvkxkGN/H03mDxLzItaceYJDBk1HdClgR15suAzI=
 github.com/scaleway/scaleway-sdk-go v1.0.0-beta.6/go.mod h1:CJJ5VAbozOl0yEw7nHB9+7BXTJbIn6h7W+f6Gau5IP8=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=

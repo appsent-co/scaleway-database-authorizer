@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	externalip "github.com/glendc/go-external-ip"
 	"github.com/scaleway/scaleway-sdk-go/api/rdb/v1"
 	"github.com/scaleway/scaleway-sdk-go/scw"
 	"net"
@@ -23,8 +24,11 @@ func main() {
 	}
 
 	// Pod ip address
-	podIp := net.ParseIP(os.Getenv("POD_IP"))
 	podName := os.Getenv("POD_NAME")
+	podIp, err := externalIP()
+	if err != nil {
+		panic(err)
+	}
 
 	fmt.Printf("Authorizing ip address %s...", podIp)
 
@@ -64,4 +68,14 @@ func blockForever() {
 	wg := sync.WaitGroup{}
 	wg.Add(1)
 	wg.Wait()
+}
+
+func externalIP() (net.IP, error) {
+	consensus := externalip.DefaultConsensus(nil, nil)
+
+	ip, err := consensus.ExternalIP()
+	if err != nil {
+		return nil, err
+	}
+	return ip, nil
 }

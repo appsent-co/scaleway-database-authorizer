@@ -11,7 +11,7 @@ You need to configure the following env variables:
     - SCALEWAY_ACCESS_KEY => Your scaleway access key
     - SCALEWAY_SECRET_KEY => Your scaleway secret key
     - SCALEWAY_ORG_ID => Your scaleway org id
-    - SCALEWAY_INSTANCE_ID => Your scaleway elements manages database instance id
-    - SCALEWAY_DATABASE_REGION => Your scaleway elements manages database region (fr-par/nl-ams)
+    - SCALEWAY_INSTANCE_ID => Your scaleway elements managed database instance id
+    - SCALEWAY_DATABASE_REGION => Your scaleway elements managed database region (fr-par/nl-ams)
     - POD_NAME => Example in the yaml file. Name of the pod
     - POD_IP => Example in the yaml file. IP of the pod
