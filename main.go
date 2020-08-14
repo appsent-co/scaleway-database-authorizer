@@ -6,6 +6,7 @@ import (
 	"github.com/scaleway/scaleway-sdk-go/api/rdb/v1"
 	"github.com/scaleway/scaleway-sdk-go/scw"
 	"net"
+	"net/http"
 	"os"
 	"sync"
 )
@@ -54,7 +55,16 @@ func main() {
 		},
 	})
 	if err != nil {
-		panic(err)
+		responseError, ok := err.(*scw.ResponseError)
+		if !ok {
+			panic(err)
+		}
+
+		if responseError.StatusCode != http.StatusConflict {
+			panic(responseError)
+		}
+
+		fmt.Println("IP was already authorized.")
 	}
 
 	fmt.Println("Success.")
